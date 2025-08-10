@@ -19,5 +19,6 @@ export default defineConfig({
 		distPath: {
 			root: "dist",
 		},
+		assetPrefix: "https://mf-provider.vercel.app",
 	},
 });
