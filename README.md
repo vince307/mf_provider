@@ -10,6 +10,11 @@ This project is a **Module Federation Provider** built with [React](https://reac
 - **TypeScript**: Fully typed codebase for safety and maintainability.
 - **Ready for Integration**: Designed to be consumed by other micro-frontends via Module Federation.
 
+## Live Demo
+
+This application is deployed to Vercel and available for presentation purposes at:  
+👉 [https://mf-provider.vercel.app/](https://mf-provider.vercel.app/)
+
 ## Getting Started
 
 ### Prerequisites
