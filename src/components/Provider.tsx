@@ -34,7 +34,13 @@ export default function Provider(props: { disableCustomTheme?: boolean }) {
 			<AppTheme {...props}>
 				<CssBaseline enableColorScheme />
 				{coinsData.map((card, index) => (
-					<Grid key={index}>
+					<Grid
+						key={index}
+						sx={{
+							mb: 2,
+							mt: 2,
+						}}
+					>
 						<StatCard {...card} />
 					</Grid>
 				))}
