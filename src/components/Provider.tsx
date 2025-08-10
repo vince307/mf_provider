@@ -38,7 +38,6 @@ export default function Provider(props: { disableCustomTheme?: boolean }) {
 						key={index}
 						sx={{
 							mb: 2,
-							mt: 2,
 						}}
 					>
 						<StatCard {...card} />
