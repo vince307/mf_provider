@@ -100,7 +100,7 @@ export const fetchCoinPrices = async (
 		return data as CoinGeckoPriceResponse;
 	} catch (error) {
 		console.error("Failed to fetch coin prices:", error);
-		throw error;
+		return {};
 	}
 };
 
@@ -147,7 +147,7 @@ export const fetchCoinHistoricalData = async (
 		return reduceToMedians(pricesArray); // Extract and reduce prices
 	} catch (error) {
 		console.error(`Failed to fetch historical data for ${coinId}:`, error);
-		throw error;
+		return [];
 	}
 };
 

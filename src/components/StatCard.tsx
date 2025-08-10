@@ -17,21 +17,6 @@ export type StatCardProps = {
 	data: number[];
 };
 
-function getDaysInMonth(month: number, year: number) {
-	const date = new Date(year, month, 0);
-	const monthName = date.toLocaleDateString("en-US", {
-		month: "short",
-	});
-	const daysInMonth = date.getDate();
-	const days = [];
-	let i = 1;
-	while (days.length < daysInMonth) {
-		days.push(`${monthName} ${i}`);
-		i += 1;
-	}
-	return days;
-}
-
 function getLast30Days() {
 	const days = [];
 	const today = new Date();
@@ -105,7 +90,6 @@ export default function StatCard({
 		down: `${trendPercent.toFixed(1)}%`,
 		neutral: `${trendPercent.toFixed(1)}%`,
 	};
-	// const trendValues = { up: "+25%", down: "-25%", neutral: "+5%" };
 
 	return (
 		<Card variant="outlined" sx={{ height: "100%", flexGrow: 1 }}>
