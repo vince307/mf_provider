@@ -68,7 +68,6 @@ export const fetchCoinPrices = async (
 	coinId: string,
 ): Promise<CoinGeckoPriceResponse> => {
 	try {
-		console.log("fetchCoinPrices", coinId);
 		if (!coinId) {
 			throw new Error("No coin IDs provided for fetching prices.");
 		}
@@ -113,7 +112,6 @@ export const fetchCoinHistoricalData = async (
 	coinId: string,
 ): Promise<number[]> => {
 	try {
-		console.log("fetchCoinHistoricalData", coinId);
 		if (!coinId) {
 			throw new Error("Coin ID must be provided for fetching historical data.");
 		}
@@ -144,6 +142,13 @@ export const fetchCoinHistoricalData = async (
 		const pricesArray = Array.isArray(data.prices)
 			? data.prices.map((price: [number, number]) => price[1])
 			: [];
+		// Ensure we have exactly 720 data points (30 days * 24 points per day)
+		while (pricesArray.length < 720) {
+			pricesArray.unshift(pricesArray[0]);
+		}
+		if (pricesArray.length > 720) {
+			pricesArray.splice(0, pricesArray.length - 720);
+		}
 		return reduceToMedians(pricesArray); // Extract and reduce prices
 	} catch (error) {
 		console.error(`Failed to fetch historical data for ${coinId}:`, error);
